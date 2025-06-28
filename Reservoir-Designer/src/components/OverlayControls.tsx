@@ -1,16 +1,16 @@
-import { CenterIcon, CollapseIcon, HandIcon, MinusIcon, PlusIcon } from "../assets/svg-images";
+import { CenterIcon, CollapseIcon, MinusIcon, PlusIcon } from "../assets/svg-images";
 import usePanelStore from "../stores/usePanelStore";
-import FloatingButton from "./floating-button";
+import FloatingButton from "./FloatingButton";
 
 type OverlayControlsProps = {
     onToggle: () => void;
     onZoomIn: () => void;
     onZoomOut: () => void;
     onCenter: () => void;
-    onPan: () => void;
+    // onPan: () => void;
 }
 
-function OverlayControls({ onToggle, onZoomIn, onZoomOut, onCenter, onPan }: OverlayControlsProps) {
+function OverlayControls({ onToggle, onZoomIn, onZoomOut, onCenter }: OverlayControlsProps) {
     const leftSize = usePanelStore((s) => s.leftSize);
     const rightSize = usePanelStore((s) => s.rightSize);
 
@@ -24,7 +24,6 @@ function OverlayControls({ onToggle, onZoomIn, onZoomOut, onCenter, onPan }: Ove
 
             <FloatingButton onClick={onToggle} icon={CollapseIcon} title="Smanji" />
 
-            {/* desni dugmici */}
             <div className="flex p-0 m-0 flex-col justify-between">
                 {/* zumiranje */}
                 <div className="flex p-0 m-0 flex-col gap-2">
