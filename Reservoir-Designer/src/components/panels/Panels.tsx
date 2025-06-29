@@ -39,7 +39,7 @@ function Panels({ children }: { children: React.ReactNode }) {
                     minSize={15}
                     maxSize={40}
                     collapsible
-                    className="bg-neutral-950 p-2">
+                    className="bg-neutral-950">
                     Part picker
                 </Panel>
 
@@ -58,7 +58,7 @@ function Panels({ children }: { children: React.ReactNode }) {
                     minSize={15}
                     maxSize={40}
                     collapsible
-                    className="bg-neutral-950 p-2">
+                    className="bg-neutral-950">
                     Configurator
                 </Panel>
             </PanelGroup>

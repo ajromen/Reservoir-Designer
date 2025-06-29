@@ -41,8 +41,7 @@ const useCanvasStore = create<CanvasStore>((set, get) => ({
         if (!camera || !controls) return;
 
         const centerPoint = new Vector3(0, 0, 0); // Object center
-
-        camera.position.set(0, 0, 5); // or any good "default" viewing position
+        // or any good "default" viewing position
         controls.target.copy(centerPoint);
 
         controls.update();
