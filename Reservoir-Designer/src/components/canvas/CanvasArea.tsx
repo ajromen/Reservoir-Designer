@@ -3,7 +3,6 @@ import OverlayControls from "../panels/OverlayControls";
 import MyScene from "./MyScene";
 
 
-
 function CanvasArea() {
     return (
         <div className="relative w-full h-full">

@@ -32,8 +32,6 @@ function MyScene() {
         camera.updateProjectionMatrix();
     });
 
-
-
     return (
         <>
             <ambientLight />

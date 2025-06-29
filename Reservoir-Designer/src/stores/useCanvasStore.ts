@@ -31,8 +31,8 @@ type CanvasStore = {
 const useCanvasStore = create<CanvasStore>((set, get) => ({
     zoom: 1,
     zoomIn: () => set((state) => ({ zoom: state.zoom + 0.1 })),
-    zoomOut: () => set((state) => ({ zoom: state.zoom - 0.1 })),
-    setZoom: (zoom) => set({ zoom }),
+    zoomOut: () => set((state) => ({ zoom: Math.max(0.2, state.zoom - 0.1) })),
+    setZoom: (zoom) => set({ zoom: Math.max(0.2, zoom) }),
 
     center: () => {
         const camera = get().camera;

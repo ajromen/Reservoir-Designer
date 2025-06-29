@@ -1,6 +1,8 @@
 import { useEffect, useRef } from "react";
 import { Panel, PanelGroup, PanelResizeHandle, type ImperativePanelHandle } from "react-resizable-panels";
 import usePanelStore from "../../stores/usePanelStore";
+import LeftPanel from "./LeftPanel";
+import RightPanel from "./RightPanel";
 
 function Panels({ children }: { children: React.ReactNode }) {
     const leftPanelRef = useRef<ImperativePanelHandle>(null);
@@ -35,12 +37,12 @@ function Panels({ children }: { children: React.ReactNode }) {
             <PanelGroup direction="horizontal" className="w-full h-full">
                 {/* left */}
                 <Panel ref={leftPanelRef}
-                    defaultSize={20}
+                    defaultSize={18}
                     minSize={15}
                     maxSize={40}
                     collapsible
                     className="bg-neutral-950">
-                    Part picker
+                    <LeftPanel />
                 </Panel>
 
                 <PanelResizeHandle className="bg-neutral-900 w-0.5" />
@@ -54,12 +56,12 @@ function Panels({ children }: { children: React.ReactNode }) {
 
                 {/* right */}
                 <Panel ref={rightPanelRef}
-                    defaultSize={20}
+                    defaultSize={18}
                     minSize={15}
                     maxSize={40}
                     collapsible
                     className="bg-neutral-950">
-                    Configurator
+                    <RightPanel />
                 </Panel>
             </PanelGroup>
 

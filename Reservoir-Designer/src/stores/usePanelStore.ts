@@ -7,7 +7,7 @@ type PanelState = {
 
 const usePanelStore = create<PanelState>((set) => ({
 
-    isCollapsed: false,
+    isCollapsed: true,
     toggleCollapsed: () => set((state) => ({ isCollapsed: !state.isCollapsed }))
 }));
 

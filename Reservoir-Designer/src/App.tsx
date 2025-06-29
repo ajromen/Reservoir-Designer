@@ -1,4 +1,3 @@
-import './App.css'
 import CanvasArea from './components/canvas/CanvasArea'
 import Panels from './components/panels/Panels'
 
