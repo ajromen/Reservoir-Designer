@@ -1,17 +1,14 @@
 import { create } from "zustand";
 
 type PanelState = {
-    leftSize: number;
-    rightSize: number;
-    setLeftSize: (size: number) => void;
-    setRightSize: (size: number) => void;
+    isCollapsed: boolean;
+    toggleCollapsed: () => void;
 }
 
 const usePanelStore = create<PanelState>((set) => ({
-    leftSize: 20,
-    rightSize: 20,
-    setLeftSize: (size) => set({ leftSize: size }),
-    setRightSize: (size) => set({ rightSize: size }),
+
+    isCollapsed: false,
+    toggleCollapsed: () => set((state) => ({ isCollapsed: !state.isCollapsed }))
 }));
 
 export default usePanelStore;
