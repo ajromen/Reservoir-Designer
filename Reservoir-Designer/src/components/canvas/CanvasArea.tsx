@@ -7,7 +7,7 @@ function CanvasArea() {
     return (
         <div className="relative w-full h-full">
             <OverlayControls />
-            <Canvas style={{ background: "#1E1E1E" }}>
+            <Canvas style={{ background: "#333333FF" }}>
                 <MyScene />
             </Canvas>
         </div>

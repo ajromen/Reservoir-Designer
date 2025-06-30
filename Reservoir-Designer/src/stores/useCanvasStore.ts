@@ -19,8 +19,8 @@ type CanvasStore = {
     radius: number;
     setRadius: (newRadius: number) => void;
 
-    orientation: string;
-    setOrientation: (orientation: string) => void;
+    isHorizontal: boolean;
+    setIsHorizontal: (isHorizontal: boolean) => void;
 
     camera: Camera | null;
     controls: OrbitControls | null;
@@ -56,8 +56,8 @@ const useCanvasStore = create<CanvasStore>((set, get) => ({
     radius: 0.8,
     setRadius: (newRadius) => set({ radius: newRadius }),
 
-    orientation: "horizontal",
-    setOrientation: (orientation) => set({ orientation }),
+    isHorizontal: true,
+    setIsHorizontal: (isHorizontal) => set({ isHorizontal }),
 
     camera: null,
     controls: null,

@@ -1,7 +1,7 @@
 import useCanvasStore from "../../stores/useCanvasStore";
 
 function RightPanel() {
-    const setOrientation = useCanvasStore((s) => s.setOrientation);
+    const setIsHorizontal = useCanvasStore((s) => s.setIsHorizontal);
     const setLength = useCanvasStore((s) => s.setLength);
     const setColor = useCanvasStore((s) => s.setColor);
 
@@ -13,8 +13,8 @@ function RightPanel() {
                     <h3>Orijentacija</h3>
 
                     <div className="flex flex-row gap-2.5">
-                        <button onClick={() => setOrientation('vertical')} className="bg-white border-0 text-black px-8 py-2 font-medium">Vertikalno</button>
-                        <button onClick={() => setOrientation('horizontal')} className="bg-neutral-950 border-[1px] border-neutral-500 text-neutral-400 px-8 py-2">Horizontalno</button>
+                        <button onClick={() => setIsHorizontal(false)} className="bg-white border-0 text-black px-8 py-2 font-medium">Vertikalno</button>
+                        <button onClick={() => setIsHorizontal(true)} className="bg-neutral-950 border-[1px] border-neutral-500 text-neutral-400 px-8 py-2">Horizontalno</button>
                     </div>
                 </div>
 
@@ -45,8 +45,9 @@ function RightPanel() {
                 <div className="flex flex-col gap-2 ">
                     <h3>Boja</h3>
                     <div className="flex flex-row gap-2.5">
-                        <button onClick={() => setColor('#dddddd')} className="bg-[#dddddd] w-6 h-6"></button>
+                        <button onClick={() => setColor('#338F37')} className="bg-[#338F37] w-6 h-6"></button>
                         <button onClick={() => setColor('#278AD0')} className="bg-[#278AD0] w-6 h-6"></button>
+                        <button onClick={() => setColor('#dddddd')} className="bg-[#dddddd] w-6 h-6"></button>
                         <button onClick={() => setColor('#1e1e1e')} className="bg-[#1e1e1e] w-6 h-6"></button>
                     </div>
                 </div>

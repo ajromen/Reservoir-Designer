@@ -1,34 +1,32 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import useCanvasStore from "../../stores/useCanvasStore";
+import { Thread } from "../parts/Thread";
 
 function Reservoir() {
 
-    const length = useCanvasStore((s) => s.length)
-    const radius = useCanvasStore((s) => s.radius)
-    const orientation = useCanvasStore((s) => s.orientation)
+    const length = useCanvasStore((s) => s.length);
+    const radius = useCanvasStore((s) => s.radius);
+    const isHorizontal = useCanvasStore((s) => s.isHorizontal);
     const color = useCanvasStore((s) => s.color);
 
-    let rotation: [number, number, number] = orientation == 'horizontal' ? [0, 0, Math.PI / 2] : [0, 0, 0];
+    let rotation: [number, number, number] = isHorizontal ? [0, 0, Math.PI / 2] : [0, 0, 0];
 
-    const [isHovered, setIsHovered] = useState(false);
 
     useEffect(() => {
-        rotation = orientation == 'horizontal' ? [0, 0, Math.PI / 2] : [0, 0, 0];
-    }, [orientation])
+        rotation = isHorizontal ? [0, 0, Math.PI / 2] : [0, 0, 0];
+    }, [isHorizontal])
 
     return (
-        <mesh
-            rotation={rotation}
-            onPointerEnter={(event) => {
-                event.stopPropagation();
-                setIsHovered(true);
-            }}
-            onPointerLeave={() => { }}
-            onClick={() => { }}
-        >
-            <cylinderGeometry args={[radius, radius, length, 50, 1, false]} />
-            <meshStandardMaterial color={color} />
-        </mesh>
+        <>
+            <mesh
+                rotation={rotation}
+                onClick={() => { }}
+            >
+                <cylinderGeometry args={[radius, radius, length, 50, 1, false]} />
+                <meshStandardMaterial color={color} />
+            </mesh>
+            <Thread />
+        </>
     );
 }
 
