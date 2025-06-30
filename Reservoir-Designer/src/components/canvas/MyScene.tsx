@@ -2,8 +2,9 @@ import { useEffect, useRef } from "react";
 import useCanvasStore from "../../stores/useCanvasStore";
 import { useFrame, useThree } from "@react-three/fiber";
 import { MathUtils } from "three";
-import { OrbitControls } from "@react-three/drei";
+import { AdaptiveDpr, OrbitControls } from "@react-three/drei";
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
+import Reservoir from "./Reservoir";
 
 
 
@@ -34,12 +35,12 @@ function MyScene() {
 
     return (
         <>
-            <ambientLight />
-            <pointLight />
-            <mesh>
-                <boxGeometry />
-                <meshStandardMaterial color="#0d0d0d" />
-            </mesh>
+            <AdaptiveDpr pixelated />{/* for preformance */}
+            <ambientLight intensity={1} />
+            <directionalLight position={[5, 5, 5]} intensity={2} />
+
+            <Reservoir />
+
             <OrbitControls ref={orbitControlsRef} />
         </>
     );

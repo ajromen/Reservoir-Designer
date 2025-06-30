@@ -1,4 +1,9 @@
+import useCanvasStore from "../../stores/useCanvasStore";
+
 function RightPanel() {
+    const setOrientation = useCanvasStore((s) => s.setOrientation);
+    const setLength = useCanvasStore((s) => s.setLength);
+    const setColor = useCanvasStore((s) => s.setColor);
 
     return (
         <div className=" flex flex-col p-5 justify-between h-full">
@@ -8,8 +13,8 @@ function RightPanel() {
                     <h3>Orijentacija</h3>
 
                     <div className="flex flex-row gap-2.5">
-                        <button className="bg-white border-0 text-black px-8 py-2 font-medium">Vertikalno</button>
-                        <button className="bg-neutral-950 border-[1px] border-neutral-500 text-neutral-400 px-8 py-2">Horizontalno</button>
+                        <button onClick={() => setOrientation('vertical')} className="bg-white border-0 text-black px-8 py-2 font-medium">Vertikalno</button>
+                        <button onClick={() => setOrientation('horizontal')} className="bg-neutral-950 border-[1px] border-neutral-500 text-neutral-400 px-8 py-2">Horizontalno</button>
                     </div>
                 </div>
 
@@ -24,25 +29,25 @@ function RightPanel() {
 
                 <div className="flex flex-col gap-2 ">
                     <h3>Duzina</h3>
-                    <input className="border-[1px] border-neutral-500 text-neutral-400 px-2 py-1.5 text-right" type="number" placeholder="5.2m" />
-                </div>
-
-                <div className="flex flex-col gap-2 ">
-                    <h3>Duzina</h3>
-                    <input className="border-[1px] border-neutral-500 text-neutral-400 px-2 py-1.5 text-right" type="number" placeholder="5.2m" />
+                    <input onChange={e => setLength(Number(e.target.value))} className="border-[1px] border-neutral-500 text-neutral-400 px-2 py-1.5 text-right" type="number" placeholder="5.2m" />
                 </div>
 
                 <div className="flex flex-col gap-2 ">
                     <h3>Zapremina</h3>
+                    <input className="border-[1px] border-neutral-500 text-neutral-400 px-2 py-1.5 text-right" type="number" placeholder="5.2m" />
+                </div>
+
+                <div className="flex flex-col gap-2 ">
+                    <h3>Svrha</h3>
                     <input className="border-[1px] border-neutral-500 text-neutral-400 px-2 py-1.5 text-right" type="number" placeholder="1470.3L" />
                 </div>
 
                 <div className="flex flex-col gap-2 ">
                     <h3>Boja</h3>
                     <div className="flex flex-row gap-2.5">
-                        <button className="bg-[#dddddd] w-6 h-6"></button>
-                        <button className="bg-[#278AD0] w-6 h-6"></button>
-                        <button className="bg-[#1e1e1e] w-6 h-6"></button>
+                        <button onClick={() => setColor('#dddddd')} className="bg-[#dddddd] w-6 h-6"></button>
+                        <button onClick={() => setColor('#278AD0')} className="bg-[#278AD0] w-6 h-6"></button>
+                        <button onClick={() => setColor('#1e1e1e')} className="bg-[#1e1e1e] w-6 h-6"></button>
                     </div>
                 </div>
 

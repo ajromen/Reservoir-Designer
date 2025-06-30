@@ -43,7 +43,7 @@ const useCanvasStore = create<CanvasStore>((set, get) => ({
         const centerPoint = new Vector3(0, 0, 0); // Object center
         // or any good "default" viewing position
         controls.target.copy(centerPoint);
-
+        camera.rotation.set(0, 0, 0);
         controls.update();
     },
 
