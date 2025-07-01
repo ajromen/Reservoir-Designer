@@ -40,21 +40,36 @@ const useCanvasStore = create<CanvasStore>((set, get) => ({
 
         if (!camera || !controls) return;
 
-        const centerPoint = new Vector3(0, 0, 0); // Object center
-        // or any good "default" viewing position
-        controls.target.copy(centerPoint);
-        camera.rotation.set(0, 0, 0);
+        get().setZoom(1);
+
+        // Assume the object is centered at origin and has size based on `length` and `radius`
+        const length = get().length;
+        const radius = get().radius;
+
+        const boundingSize = Math.max(length, radius * 2);
+        const distance = boundingSize / (2 * Math.tan((75 * Math.PI) / 360)); // fit in view
+
+        const direction = new Vector3(1, 0, 1); // view direction
+        const target = new Vector3(0, 0, 0); // center of object
+
+        // Move camera back from center along direction
+        const newPosition = target.clone().add(direction.multiplyScalar(distance * 1.2)); // add margin
+
+
+        camera.position.copy(newPosition);
+        controls.target.copy(target);
         controls.update();
     },
+
 
     color: "#1E1E1E",
     setColor: (color) => set({ color }),
 
     length: 2,
-    setLength: (newLength) => set({ length: newLength }),
+    setLength: (newLength) => set({ length: Math.max(0.2, newLength) }),
 
     radius: 0.8,
-    setRadius: (newRadius) => set({ radius: newRadius }),
+    setRadius: (newRadius) => set({ radius: Math.max(0.2, newRadius) }),
 
     isHorizontal: true,
     setIsHorizontal: (isHorizontal) => set({ isHorizontal }),

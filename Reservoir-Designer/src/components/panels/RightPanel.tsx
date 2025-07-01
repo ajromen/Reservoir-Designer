@@ -46,8 +46,8 @@ function RightPanel() {
                     <h3>Boja</h3>
                     <div className="flex flex-row gap-2.5">
                         <button onClick={() => setColor('#338F37')} className="bg-[#338F37] w-6 h-6"></button>
-                        <button onClick={() => setColor('#278AD0')} className="bg-[#278AD0] w-6 h-6"></button>
                         <button onClick={() => setColor('#dddddd')} className="bg-[#dddddd] w-6 h-6"></button>
+                        <button onClick={() => setColor('#278AD0')} className="bg-[#278AD0] w-6 h-6"></button>
                         <button onClick={() => setColor('#1e1e1e')} className="bg-[#1e1e1e] w-6 h-6"></button>
                     </div>
                 </div>
