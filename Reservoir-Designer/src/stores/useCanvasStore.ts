@@ -49,7 +49,7 @@ const useCanvasStore = create<CanvasStore>((set, get) => ({
         const boundingSize = Math.max(length, radius * 2);
         const distance = boundingSize / (2 * Math.tan((75 * Math.PI) / 360)); // fit in view
 
-        const direction = new Vector3(1, 0, 1); // view direction
+        const direction = new Vector3(-1, 0, -1); // view direction
         const target = new Vector3(0, 0, 0); // center of object
 
         // Move camera back from center along direction
