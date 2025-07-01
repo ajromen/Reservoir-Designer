@@ -17,11 +17,11 @@ function RightPanel() {
     const calculatedVolume = Math.pow(selectedRadius, 2) * Math.PI * length * 1000;
 
     useEffect(() => {
-        setVolumeInput(""); // Reset on dimension change
+        setVolumeInput(""); 
     }, [selectedRadius, length]);
 
     function handleVolumeChange(e: React.ChangeEvent<HTMLInputElement>) {
-        setVolumeInput(e.target.value); // Allow free typing
+        setVolumeInput(e.target.value); 
     }
 
     function validateVolumeInput() {
@@ -30,10 +30,10 @@ function RightPanel() {
         if (!isNaN(parsed)) {
             const isSame = Math.abs(parsed - calculatedVolume) < 0.01;
             if (!isSame) {
-                setVolumeInput(""); // Clear only if it's wrong
+                setVolumeInput("");
             }
         } else {
-            setVolumeInput(""); // Also clear on invalid number
+            setVolumeInput(""); 
         }
     }
 
@@ -54,7 +54,7 @@ function RightPanel() {
                 </div>
 
                 <div className="flex flex-col gap-2.5 ">
-                    <h3>Precnik</h3>
+                    <h3>Poluprecnik</h3>
 
                     <div className="flex flex-wrap gap-2 w-full">
                         {radiuses.map((radius) => (
@@ -150,10 +150,10 @@ function RightPanel() {
                 <div className="flex flex-col gap-2 ">
                     <h3>Boja</h3>
                     <div className="flex flex-row gap-2.5">
-                        <button onClick={() => setColor('#338F37')} className="bg-[#338F37] w-6 h-6"></button>
+                        <button onClick={() => setColor('#1e1e1e')} className="bg-[#1e1e1e] w-6 h-6"></button>
                         <button onClick={() => setColor('#dddddd')} className="bg-[#dddddd] w-6 h-6"></button>
                         <button onClick={() => setColor('#278AD0')} className="bg-[#278AD0] w-6 h-6"></button>
-                        <button onClick={() => setColor('#1e1e1e')} className="bg-[#1e1e1e] w-6 h-6"></button>
+                        <button onClick={() => setColor('#338F37')} className="bg-[#338F37] w-6 h-6"></button>
                     </div>
                 </div>
 

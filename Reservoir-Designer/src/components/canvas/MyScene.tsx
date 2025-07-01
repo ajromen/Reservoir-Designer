@@ -28,19 +28,18 @@ function MyScene() {
 
 
     useFrame(() => {
-        // Use lerp for smooth zooming
         camera.zoom = MathUtils.lerp(camera.zoom, targetZoom, 0.1);
         camera.updateProjectionMatrix();
     });
 
     return (
         <>
-            <AdaptiveDpr pixelated />{/* for preformance */}
+            <AdaptiveDpr pixelated />
             <Stage intensity={1} environment="city" shadows={false}>
                 <Reservoir />
             </Stage>
 
-            <OrbitControls ref={orbitControlsRef} minPolarAngle={Math.PI / 6}    // lowest vertical angle (30° above ground)
+            <OrbitControls ref={orbitControlsRef} minPolarAngle={Math.PI / 6}
                 maxPolarAngle={Math.PI / 2} />
         </>
     );

@@ -29,12 +29,14 @@ export function Thread({
     thickness?: number;
     resolution?: number;
 }) {
-    const height = useCanvasStore((s) => s.length);
+    let height = useCanvasStore((s) => s.length);
     const width = useCanvasStore((s) => s.radius);
     let color = useCanvasStore((s) => s.color);
 
+    height-=0.15;
+
     const isHorizontal = useCanvasStore((s) => s.isHorizontal);
-    let rotation: [number, number, number] = isHorizontal ? [0, 0, Math.PI / 2] : [0, 0, 0];
+    let rotation: [number, number, number] = isHorizontal ? [Math.PI, 0, Math.PI / 2] : [0, 0, 0];
 
 
     useEffect(() => {
