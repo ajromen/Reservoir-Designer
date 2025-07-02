@@ -5,6 +5,7 @@ import { MathUtils } from "three";
 import { AdaptiveDpr, OrbitControls, Stage } from "@react-three/drei";
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 import Reservoir from "./Reservoir";
+import PartsMenager from "./ParstMenager";
 
 
 
@@ -37,10 +38,13 @@ function MyScene() {
             <AdaptiveDpr pixelated />
             <Stage intensity={1} environment="city" shadows={false}>
                 <Reservoir />
+                <PartsMenager />
             </Stage>
 
-            <OrbitControls ref={orbitControlsRef} minPolarAngle={Math.PI / 6}
-                maxPolarAngle={Math.PI / 2} />
+            {/* <OrbitControls ref={orbitControlsRef} minPolarAngle={Math.PI / 6}
+                maxPolarAngle={Math.PI / 2} /> */}
+            <OrbitControls ref={orbitControlsRef} minPolarAngle={0}
+                maxPolarAngle={Math.PI*2} />
         </>
     );
 }

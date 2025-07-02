@@ -80,6 +80,7 @@ function RightPanel() {
                             className="border-[1px] border-neutral-500 text-neutral-400 px-0 py-1.5 text-right pr-8 w-full"
                             type="number"
                             value={length.toFixed(2)}
+                            onFocus={e => e.target.select()}
                         />
                         <span className="absolute right-2 top-1/2 -translate-y-1/2 text-neutral-400 pointer-events-none">m</span>
                     </div>

@@ -19,6 +19,9 @@ type CanvasStore = {
     radius: number;
     setRadius: (newRadius: number) => void;
 
+    thickness: number;
+    setThickness: (newThickness: number) => void;
+
     isHorizontal: boolean;
     setIsHorizontal: (isHorizontal: boolean) => void;
 
@@ -65,11 +68,14 @@ const useCanvasStore = create<CanvasStore>((set, get) => ({
     color: "#1E1E1E",
     setColor: (color) => set({ color }),
 
-    length: 2,
+    length: 0.3,
     setLength: (newLength) => set({ length: Math.max(0.2, newLength) }),
 
     radius: 0.8,
     setRadius: (newRadius) => set({ radius: Math.max(0.2, newRadius) }),
+
+    thickness: 0.07,
+    setThickness: (newThickness) => set({ thickness: newThickness }),
 
     isHorizontal: true,
     setIsHorizontal: (isHorizontal) => set({ isHorizontal }),
