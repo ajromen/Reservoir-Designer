@@ -40,7 +40,7 @@ function RightPanel() {
 
 
     return (
-        <div className=" flex flex-col p-5 justify-between h-full overflow-auto gap-8">
+        <div className=" flex flex-col p-5 justify-between h-full overflow-auto overflow-x-hidden gap-8">
             <div className="flex flex-col gap-8 text-white">
 
                 <div className="flex flex-col gap-2 ">

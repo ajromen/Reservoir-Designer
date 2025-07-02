@@ -72,7 +72,7 @@ function Reservoir() {
                 }
             >
                 <coneGeometry args={[radius, 0.2, 50]} />
-                <meshStandardMaterial color={color} />
+                <meshStandardMaterial color={color} flatShading={false} />
             </mesh>
             {/* <HollowCylinder radius={radius} thickness={0.2} height={length} color={color} rotation={rotation} /> */}
             <Thread />
