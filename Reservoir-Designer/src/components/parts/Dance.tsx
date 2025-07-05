@@ -43,9 +43,9 @@ function Dance() {
             <meshStandardMaterial color={color} flatShading={false} />
         </mesh>
 
-        <mesh>
+        {/* <mesh>
             <boxGeometry args={[]} />
-        </mesh>
+        </mesh> */}
     </>)
 }
 

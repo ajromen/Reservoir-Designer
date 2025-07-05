@@ -68,7 +68,7 @@ const useCanvasStore = create<CanvasStore>((set, get) => ({
     color: "#1E1E1E",
     setColor: (color) => set({ color }),
 
-    length: 0.3,
+    length: 2,
     setLength: (newLength) => set({ length: Math.max(0.2, newLength) }),
 
     radius: 0.8,
