@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import useCanvasStore from "../../stores/useCanvasStore";
-import { Thread } from "../parts/Thread";
 import * as THREE from "three";
 
 
@@ -58,11 +57,9 @@ function Reservoir() {
                 </mesh>
             }
 
-            <Thread />
-
             {!isHorizontal &&
-                <mesh rotation={[Math.PI/2,0,0]}
-                position={[0,-length/2,0]}>
+                <mesh rotation={[Math.PI / 2, 0, 0]}
+                    position={[0, -length / 2, 0]}>
                     <circleGeometry args={[radius, 20]} />
                     <meshStandardMaterial color={color} side={THREE.DoubleSide} />
                 </mesh>

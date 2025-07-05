@@ -1,15 +1,15 @@
 import useCanvasStore from "../../stores/useCanvasStore";
 
-const standWidth = 0.3;
+const standWidth = 0.25;
 const gap = 1.5;
 
 
 
 function Stand({ positionX, radius, color }: { positionX: number, radius: number, color: string }) {
     return (<mesh
-        position={[positionX, -radius / 2 - 0.05, 0]}
+        position={[positionX, -radius / 2 - 0.04, 0]}
     >
-        <boxGeometry args={[standWidth, radius, radius * 2]} />
+        <boxGeometry args={[standWidth, radius, radius * 2 *0.9]} />
         <meshStandardMaterial color={color} />
     </mesh>)
 }
