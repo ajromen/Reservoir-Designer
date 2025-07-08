@@ -11,7 +11,7 @@ function PartsMenager() {
     parts.push(<Dance />);
     parts.push(<StandHorizontal />);
     parts.push(<Thread />);
-    parts.push(<TopOpening />);
+    parts.push(<TopOpening offset={0} />);
     return (
         <>
             {parts.map((part, idx) => (

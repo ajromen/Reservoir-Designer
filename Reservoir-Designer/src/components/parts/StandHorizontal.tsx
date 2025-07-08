@@ -2,16 +2,41 @@ import useCanvasStore from "../../stores/useCanvasStore";
 
 const standWidth = 0.25;
 const gap = 1.5;
+const standThickness = 0.05;
 
 
 
 function Stand({ positionX, radius, color }: { positionX: number, radius: number, color: string }) {
-    return (<mesh
-        position={[positionX, -radius / 2 - 0.04, 0]}
-    >
-        <boxGeometry args={[standWidth, radius, radius * 2 *0.9]} />
-        <meshStandardMaterial color={color} />
-    </mesh>)
+    // return (<mesh
+    //     position={[positionX, -radius / 2 - 0.04, 0]}
+    // >
+    //     <boxGeometry args={[standWidth, radius, radius * 2 *0.9]} />
+    //     <meshStandardMaterial color={color} />
+    // </mesh>)
+
+    return (
+        <group
+            position={[positionX, -radius / 2 - 0.04, 0]}>
+            {/* left */}
+            <mesh
+                position={[-standWidth / 2, 0, 0]}>
+                <boxGeometry args={[standThickness, radius, radius * 2 * 0.9]} />
+                <meshStandardMaterial color={color} />
+            </mesh>
+            {/* right */}
+            <mesh
+                position={[standWidth / 2, 0, 0]}>
+                <boxGeometry args={[standThickness, radius, radius * 2 * 0.9]} />
+                <meshStandardMaterial color={color} />
+            </mesh>
+            {/* bottom */}
+            <mesh
+                position={[0, -radius / 2 + standThickness / 2, 0]}>
+                <boxGeometry args={[standWidth, standThickness, radius * 2 * 0.9]} />
+                <meshStandardMaterial color={color} />
+            </mesh>
+        </group>
+    );
 }
 
 function StandHorizontal() {
