@@ -20,7 +20,7 @@ function Dance() {
     }, [isHorizontal])
 
 
-    return (<>
+    return (<group>
         {isHorizontal && (
             <mesh
                 rotation={rotation}
@@ -46,7 +46,7 @@ function Dance() {
         {/* <mesh>
             <boxGeometry args={[]} />
         </mesh> */}
-    </>)
+    </group>)
 }
 
 export default Dance;

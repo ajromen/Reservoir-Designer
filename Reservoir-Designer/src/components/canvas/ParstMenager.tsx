@@ -3,6 +3,7 @@ import Dance from "../parts/Dance";
 import StandHorizontal from "../parts/StandHorizontal";
 import { Thread } from "../parts/Thread";
 import TopOpening from "../parts/TopOpening";
+import TopInput from "../parts/TopInput";
 
 
 function PartsMenager() {
@@ -12,6 +13,7 @@ function PartsMenager() {
     parts.push(<StandHorizontal />);
     parts.push(<Thread />);
     parts.push(<TopOpening offset={0} />);
+    parts.push(<TopInput />)
     return (
         <>
             {parts.map((part, idx) => (
