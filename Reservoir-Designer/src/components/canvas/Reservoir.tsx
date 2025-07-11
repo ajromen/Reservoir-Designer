@@ -42,7 +42,7 @@ function Reservoir() {
                         [0, length / 2, 0]
                 }>
 
-                <ringGeometry args={[radius - thickness, radius, 50]} />
+                <ringGeometry args={[radius - thickness, radius, 50, 50]} />
                 <meshStandardMaterial color={color} side={THREE.DoubleSide} />
             </mesh>
 
@@ -52,11 +52,12 @@ function Reservoir() {
                     rotation={isHorizontal ? [0, Math.PI / 2, 0] : [Math.PI / 2, 0, 0]}
                     position={[-length / 2, 0, 0]}>
 
-                    <ringGeometry args={[radius - thickness, radius, 50]} />
+                    <ringGeometry args={[radius - thickness, radius, 50, 50]} />
                     <meshStandardMaterial color={color} side={THREE.DoubleSide} />
                 </mesh>
             }
-
+            
+            {/* bottom if vert */}
             {!isHorizontal &&
                 <mesh rotation={[Math.PI / 2, 0, 0]}
                     position={[0, -length / 2, 0]}>

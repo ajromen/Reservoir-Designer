@@ -40,7 +40,7 @@ function TopOpening({ openingHeight = 0.4, openingRadius = 0.3, openingCapHeight
                             key={i}
                             position={[Math.sin(angle) * (openingRadius ), 0, Math.cos(angle) * (openingRadius )]}>
                             <cylinderGeometry args={[0.01, 0.01, 0.06, 6, 1, false]} />
-                            <meshStandardMaterial color={color} metalness={1} roughness={0.2} />
+                            <meshStandardMaterial color={"#B1B1B1"} metalness={1} roughness={0.2} />
                         </mesh>
                     );
                 })}

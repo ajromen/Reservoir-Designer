@@ -66,8 +66,8 @@ function StandHorizontal() {
         {isHorizontal && (<group>
 
             {/* ends */}
-            <Stand positionX={length / 2 - standWidth / 2 - 0.07} radius={radius} color={color} />
-            <Stand positionX={-length / 2 + standWidth / 2 + 0.07} radius={radius} color={color} />
+            <Stand positionX={length / 2 - standWidth / 2 - 0.1} radius={radius} color={color} />
+            <Stand positionX={-length / 2 + standWidth / 2 + 0.1} radius={radius} color={color} />
 
 
             {/* central */}

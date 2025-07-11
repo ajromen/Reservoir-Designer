@@ -74,7 +74,7 @@ const useCanvasStore = create<CanvasStore>((set, get) => ({
     radius: 0.8,
     setRadius: (newRadius) => set({ radius: Math.max(0.2, newRadius) }),
 
-    thickness: 0.07,
+    thickness: 0.02,
     setThickness: (newThickness) => set({ thickness: newThickness }),
 
     isHorizontal: true,

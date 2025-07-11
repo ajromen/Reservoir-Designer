@@ -34,15 +34,37 @@ function Input({
         <mesh
             position={[0, -inputLength / 2, 0]}
             rotation={[Math.PI / 2, 0, 0]}>
-            <ringGeometry args={[inputRadius - inputThickness, inputRadius]} />
+            <ringGeometry args={[inputRadius - inputThickness, inputRadius, 20, 20]} />
             <meshStandardMaterial color={color} side={THREE.DoubleSide} />
         </mesh>
         {/* ring right */}
         <mesh
             position={[0, inputLength / 2, 0]}
             rotation={[Math.PI / 2, 0, 0]}>
-            <ringGeometry args={[inputRadius - inputThickness, inputRadius]} />
+            <ringGeometry args={[inputRadius - inputThickness, inputRadius, 20, 20]} />
             <meshStandardMaterial color={color} side={THREE.DoubleSide} />
+        </mesh>
+
+        <mesh
+            position={[0, 0.01, 0]}
+            rotation={[Math.PI / 2, 0, 0]}>
+            <circleGeometry args={[inputRadius - inputThickness, 20]} />
+            <meshStandardMaterial
+                color={
+                    "#" +
+                    color
+                        .replace("#", "")
+                        .replace(/../g, c =>
+                            ("0" +
+                                Math.max(
+                                    0,
+                                    Math.floor(parseInt(c, 16) * 0.6)
+                                ).toString(16)
+                            ).slice(-2)
+                        )
+                }
+                side={THREE.DoubleSide}
+            />
         </mesh>
     </group>)
 }

@@ -17,11 +17,11 @@ function RightPanel() {
     const calculatedVolume = Math.pow(selectedRadius, 2) * Math.PI * length * 1000;
 
     useEffect(() => {
-        setVolumeInput(""); 
+        setVolumeInput("");
     }, [selectedRadius, length]);
 
     function handleVolumeChange(e: React.ChangeEvent<HTMLInputElement>) {
-        setVolumeInput(e.target.value); 
+        setVolumeInput(e.target.value);
     }
 
     function validateVolumeInput() {
@@ -33,7 +33,7 @@ function RightPanel() {
                 setVolumeInput("");
             }
         } else {
-            setVolumeInput(""); 
+            setVolumeInput("");
         }
     }
 
@@ -155,6 +155,8 @@ function RightPanel() {
                         <button onClick={() => setColor('#dddddd')} className="bg-[#dddddd] w-6 h-6"></button>
                         <button onClick={() => setColor('#278AD0')} className="bg-[#278AD0] w-6 h-6"></button>
                         <button onClick={() => setColor('#338F37')} className="bg-[#338F37] w-6 h-6"></button>
+                        <button onClick={() => setColor('#ff8800')} className="bg-[#ff8800] w-6 h-6"></button>
+                        <button onClick={() => setColor('#f02d2d')} className="bg-[#f02d2d] w-6 h-6"></button>
                     </div>
                 </div>
 
