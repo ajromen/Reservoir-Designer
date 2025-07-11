@@ -9,7 +9,7 @@ type CanvasStore = {
     setZoom: (zoom: number) => void;
 
     center: () => void;
-    centerToObject: (width: number, length: number, height: number, position: [number, number, number]) => void;
+    centerToObject: (width: number, length: number, height: number, position: [number, number, number], id: string) => void;
 
     color: string;
     setColor: (color: string) => void;
@@ -30,6 +30,9 @@ type CanvasStore = {
     controls: OrbitControls | null;
     setCamera: (cam: Camera) => void;
     setControls: (controls: OrbitControls) => void;
+
+    selectedId?: string;
+    setSelected: (id?: string) => void;
 }
 
 const useCanvasStore = create<CanvasStore>((set, get) => ({
@@ -53,11 +56,11 @@ const useCanvasStore = create<CanvasStore>((set, get) => ({
         const boundingSize = Math.max(length, radius * 2);
         const distance = boundingSize / (2 * Math.tan((75 * Math.PI) / 360)); // fit in view
 
-        const direction = new Vector3(-1, 0, -1); // view direction
+        const direction = camera.position.clone().sub(controls.target).normalize();
         const target = new Vector3(0, 0, 0); // center of object
 
         // Move camera back from center along direction
-        const newPosition = target.clone().add(direction.multiplyScalar(distance * 1.2)); // add margin
+        const newPosition = target.clone().add(direction.multiplyScalar(distance * 1.7)); // add margin
 
 
         camera.position.copy(newPosition);
@@ -65,7 +68,12 @@ const useCanvasStore = create<CanvasStore>((set, get) => ({
         controls.update();
     },
 
-    centerToObject: (width, length, height, position) => {
+    centerToObject: (width, length, height, position, id) => {
+        const selectedId = get().selectedId;
+
+        if (selectedId == id)
+            return;
+
         const camera = get().camera;
         const controls = get().controls;
 
@@ -76,10 +84,11 @@ const useCanvasStore = create<CanvasStore>((set, get) => ({
         const boundingSize = Math.max(length, height, width);
         const distance = boundingSize / (2 * Math.tan((75 * Math.PI) / 360));
 
-        const direction = new Vector3(-1, 0, -1);
+        // Use the camera's current viewing direction
+        const direction = camera.position.clone().sub(controls.target).normalize();
         const target = new Vector3(position[0], position[1], position[2]);
 
-        const newPosition = target.clone().add(direction.multiplyScalar(distance * 1)); // add margin
+        const newPosition = target.clone().add(direction.multiplyScalar(distance * 1.3)); // add margin
 
         camera.position.copy(newPosition);
         controls.target.copy(target);
@@ -106,6 +115,9 @@ const useCanvasStore = create<CanvasStore>((set, get) => ({
     controls: null,
     setCamera: (cam) => set({ camera: cam }),
     setControls: (controls) => set({ controls }),
+
+    selectedId: undefined,
+    setSelected: (id) => set({ selectedId: id })
 }));
 
 export default useCanvasStore;
