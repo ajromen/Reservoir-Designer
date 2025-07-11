@@ -9,6 +9,7 @@ function Dance() {
     const radius = useCanvasStore((s) => s.radius);
     const isHorizontal = useCanvasStore((s) => s.isHorizontal);
     const color = useCanvasStore((s) => s.color);
+    const centerToObject = useCanvasStore((s) => s.centerToObject);
 
     let rotation: [number, number, number] = isHorizontal ? [0, 0, Math.PI / 2] : [0, 0, 0];
 
@@ -20,7 +21,8 @@ function Dance() {
     }, [isHorizontal])
 
 
-    return (<group>
+    return (<group
+        onClick={() => centerToObject(radius, radius*2, radius, [-length / 2 - danceWidth / 2 + danceSetBack, 0, 0])}>
         {isHorizontal && (
             <mesh
                 rotation={rotation}

@@ -9,6 +9,7 @@ type CanvasStore = {
     setZoom: (zoom: number) => void;
 
     center: () => void;
+    centerToObject: (width: number, length: number, height: number, position: [number, number, number]) => void;
 
     color: string;
     setColor: (color: string) => void;
@@ -58,6 +59,27 @@ const useCanvasStore = create<CanvasStore>((set, get) => ({
         // Move camera back from center along direction
         const newPosition = target.clone().add(direction.multiplyScalar(distance * 1.2)); // add margin
 
+
+        camera.position.copy(newPosition);
+        controls.target.copy(target);
+        controls.update();
+    },
+
+    centerToObject: (width, length, height, position) => {
+        const camera = get().camera;
+        const controls = get().controls;
+
+        if (!camera || !controls) return;
+
+        get().setZoom(1);
+
+        const boundingSize = Math.max(length, height, width);
+        const distance = boundingSize / (2 * Math.tan((75 * Math.PI) / 360));
+
+        const direction = new Vector3(-1, 0, -1);
+        const target = new Vector3(position[0], position[1], position[2]);
+
+        const newPosition = target.clone().add(direction.multiplyScalar(distance * 1)); // add margin
 
         camera.position.copy(newPosition);
         controls.target.copy(target);

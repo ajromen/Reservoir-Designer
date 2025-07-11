@@ -12,10 +12,13 @@ function TopOpening({ openingHeight = 0.4, openingRadius = 0.3, openingCapHeight
     const radius = useCanvasStore((s) => s.radius);
     const isHorizontal = useCanvasStore((s) => s.isHorizontal);
     const color = useCanvasStore((s) => s.color);
+    const centerToObject = useCanvasStore((s) => s.centerToObject);
+
 
 
     return (<>
         <group
+            onClick={() => centerToObject(openingCapHeight + openingHeight, openingRadius * 2, openingRadius * 2 + 0.08, [length / 2 - openingRadius / 2 - 0.3 - offset * length / 2, radius, 0])}
             position={isHorizontal ?
                 [length / 2 - openingRadius / 2 - 0.3 - offset * length / 2, radius, 0] :
                 [Math.cos(offset) * (radius - openingRadius * 2), length / 2, Math.sin(offset) * (radius - openingRadius * 2)]
@@ -38,7 +41,7 @@ function TopOpening({ openingHeight = 0.4, openingRadius = 0.3, openingCapHeight
                     return (
                         <mesh
                             key={i}
-                            position={[Math.sin(angle) * (openingRadius ), 0, Math.cos(angle) * (openingRadius )]}>
+                            position={[Math.sin(angle) * (openingRadius), 0, Math.cos(angle) * (openingRadius)]}>
                             <cylinderGeometry args={[0.01, 0.01, 0.06, 6, 1, false]} />
                             <meshStandardMaterial color={"#B1B1B1"} metalness={1} roughness={0.2} />
                         </mesh>
