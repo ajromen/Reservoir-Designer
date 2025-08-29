@@ -1,0 +1,21 @@
+{
+  "name": "reservoir-designer",
+  "version": "1.0.0",
+  "description": "3D designer for plastic reservoirs.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajromen/Reservoir-Designer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ajromen/Reservoir-Designer/issues"
+  },
+  "homepage": "https://github.com/ajromen/Reservoir-Designer#readme"
+}
