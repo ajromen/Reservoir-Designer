@@ -36,7 +36,7 @@ function MyScene() {
     return (
         <>
             <AdaptiveDpr pixelated />
-            <Stage intensity={1} environment="city" shadows={false}>
+            <Stage intensity={1} environment="city" shadows={"contact"}>
                 <Reservoir />
                 <PartsMenager />
             </Stage>
